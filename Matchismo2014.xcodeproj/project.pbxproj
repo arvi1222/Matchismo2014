@@ -30,6 +30,7 @@
 		729D2EA518729B3F002387E1 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 729D2EA418729B3F002387E1 /* Deck.m */; };
 		729D2EA818729DD1002387E1 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 729D2EA718729DD1002387E1 /* PlayingCardDeck.m */; };
 		729D2EAB187B17E1002387E1 /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 729D2EAA187B17E1002387E1 /* CardMatchingGame.m */; };
+		72C98D4818B3090F0058AED0 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C98D4718B3090F0058AED0 /* HistoryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		729D2EA718729DD1002387E1 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCardDeck.m; path = Model/PlayingCardDeck.m; sourceTree = "<group>"; };
 		729D2EA9187B17E1002387E1 /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardMatchingGame.h; sourceTree = "<group>"; };
 		729D2EAA187B17E1002387E1 /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardMatchingGame.m; sourceTree = "<group>"; };
+		72C98D4618B3090F0058AED0 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		72C98D4718B3090F0058AED0 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +149,8 @@
 				722C4BBF1895243600E3DF9B /* PlayingCardGameViewController.m */,
 				729D2E7C18728540002387E1 /* CardGameViewController.h */,
 				729D2E7D18728540002387E1 /* CardGameViewController.m */,
+				72C98D4618B3090F0058AED0 /* HistoryViewController.h */,
+				72C98D4718B3090F0058AED0 /* HistoryViewController.m */,
 				729D2E9F1872918A002387E1 /* Model */,
 				729D2E6E18728540002387E1 /* Supporting Files */,
 			);
@@ -309,6 +314,7 @@
 				729D2E7418728540002387E1 /* main.m in Sources */,
 				72322189189E4A0C009289C3 /* SetCardDeck.m in Sources */,
 				729D2EA21872932E002387E1 /* PlayingCard.m in Sources */,
+				72C98D4818B3090F0058AED0 /* HistoryViewController.m in Sources */,
 				722C4BC31895285C00E3DF9B /* SetCard.m in Sources */,
 				729D2EAB187B17E1002387E1 /* CardMatchingGame.m in Sources */,
 				729D2EA818729DD1002387E1 /* PlayingCardDeck.m in Sources */,

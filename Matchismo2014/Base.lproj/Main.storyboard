@@ -758,6 +758,35 @@
             </objects>
             <point key="canvasLocation" x="-643" y="30"/>
         </scene>
+        <!--History View Controller-->
+        <scene sceneID="AGs-SZ-IXm">
+            <objects>
+                <viewController id="XMq-8M-y72" customClass="HistoryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IQh-Aa-EER"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nls-ej-6qL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FxS-06-tLG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="History" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejm-qB-lVK">
+                                <rect key="frame" x="20" y="229" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="historyLabel" destination="ejm-qB-lVK" id="P5r-Rb-OWx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B8s-DR-y3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-148" y="19"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cardback" width="64" height="96"/>

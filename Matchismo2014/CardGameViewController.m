@@ -61,7 +61,6 @@
     [self.game chooseCardAtIndex:chosenButtonIndex];
     self.game.gameInProgress = YES;
     [self updateUI];
-    
 }
 
 #define SEGMENT_INDEX_ADJUSTER 2
@@ -69,7 +68,6 @@
 - (IBAction)touchMatchModeControl:(UISegmentedControl *)sender {
     self.game.cardsToMatch = sender.selectedSegmentIndex + SEGMENT_INDEX_ADJUSTER;
     NSLog(@"Cards to Match is %d", self.game.cardsToMatch);
-
 }
 
 - (void)updateUI
@@ -89,17 +87,10 @@
     }
     
     if ([self.game.matchedCards count] == 1) {
-        //change this to attributedStrings
-        //self.resultLabel.text = [NSString stringWithFormat:@"You flipped the %@", ((Card *)self.game.matchedCards[0]).contents];
         NSMutableAttributedString *resultMessage = [[NSMutableAttributedString alloc] initWithString:@"You flipped the "];
         [resultMessage appendAttributedString: [self cardAttributedContents:((Card *)self.game.matchedCards[0])]];
         self.resultLabel.attributedText = resultMessage;
     } else {
-        //NSString *result = @"";
-        //for (Card *matchedCard in self.game.matchedCards) {
-            //result = [result stringByAppendingString:matchedCard.contents];
-        //}
-        //self.resultLabel.text = [@"You matched: " stringByAppendingString:[result stringByAppendingString:[NSString stringWithFormat:@" for %d points!", self.game.lastScore]]];
         NSMutableAttributedString *result = [[NSMutableAttributedString alloc] init];
         for (Card *matchedCard in self.game.matchedCards) {
             [result appendAttributedString:[self cardAttributedContents:matchedCard]];
