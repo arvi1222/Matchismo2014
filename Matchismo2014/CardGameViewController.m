@@ -102,7 +102,12 @@
         for (Card *matchedCard in self.game.matchedCards) {
             [result appendAttributedString:[self cardAttributedContents:matchedCard]];
         }
-        NSMutableAttributedString *resultMessage = [[NSMutableAttributedString alloc] initWithString:@"You matched: "];
+        NSMutableAttributedString *resultMessage = [[NSMutableAttributedString alloc] init];
+        if (self.game.wasMatch) {
+            [resultMessage appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"You matched: "]];
+        } else {
+            [resultMessage appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"You mismatched: "]];
+        }
         [resultMessage appendAttributedString:result];
         [self.resultHistory addObject:resultMessage];
         self.resultLabel.attributedText = resultMessage;

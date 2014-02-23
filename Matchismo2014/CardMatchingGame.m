@@ -109,16 +109,17 @@
                         self.score += matchScore *MATCH_BONUS;
                         for (Card *matchedCard in chosenCards) matchedCard.matched = YES;
                         card.matched = YES;
-                        NSMutableArray *temp = [[NSMutableArray alloc] init];
-                        [temp addObject:card];
-                        for (Card *matchedCard in chosenCards) [temp addObject:matchedCard];
-                        self.matchedCards = [temp copy];
                         self.lastScore = matchScore * MATCH_BONUS;
+                        self.wasMatch = YES;
                     } else {
                         self.score -= MISMATCH_PENALTY;
                         for (Card *matchedCard in chosenCards) matchedCard.chosen = NO;
-                        self.matchedCards = @[card];
+                        self.wasMatch = NO;
                     }
+                    NSMutableArray *temp = [[NSMutableArray alloc] init];
+                    [temp addObject:card];
+                    for (Card *matchedCard in chosenCards) [temp addObject:matchedCard];
+                    self.matchedCards = [temp copy];
                 } else self.matchedCards = @[card];
                 self.score -= FLIP_PENALTY;
                 card.chosen = YES;

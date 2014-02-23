@@ -24,6 +24,7 @@
 @property (nonatomic) NSInteger cardsToMatch;
 @property (nonatomic, readonly) NSInteger lastScore;
 @property (nonatomic) BOOL gameInProgress;
+@property (nonatomic) BOOL wasMatch;
 @property (nonatomic, strong, readonly) NSArray *matchedCards; //if count == 1, then no match, content is the flipped card
 
 @end

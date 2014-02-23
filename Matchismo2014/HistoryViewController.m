@@ -10,8 +10,7 @@
 
 @interface HistoryViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *historyLabel;
-@property (weak, nonatomic) IBOutlet UITextView *historyTestView;
+@property (weak, nonatomic) IBOutlet UITextView *historyTextView;
 
 @end
 

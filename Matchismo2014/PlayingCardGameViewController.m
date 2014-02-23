@@ -44,7 +44,6 @@
 
 - (UIImage *)backgroundImageForCard:(Card *)card
 {
-    //make backgroundImage the same for setCards
     return [UIImage imageNamed:card.isChosen ? @"cardfront" : @"cardback"];
 }
 
