@@ -26,7 +26,8 @@
     if ([segue.identifier isEqualToString:@"Show History"]) {
         if ([segue.destinationViewController isKindOfClass:[HistoryViewController class]]) {
             //Put history info here
-            //HistoryViewController *hvc = (HistoryViewController *)segue.destinationViewController;
+            HistoryViewController *hvc = (HistoryViewController *)segue.destinationViewController;
+            hvc.historyArray = self.resultHistory;
         }
     }
 }

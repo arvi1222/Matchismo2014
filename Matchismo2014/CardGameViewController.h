@@ -12,9 +12,12 @@
 
 @interface CardGameViewController : UIViewController
 
+@property (strong, nonatomic) NSMutableArray *resultHistory;
+
 //  protected
 //for subclasses
 - (Deck *)createDeck; //abstract
 - (NSAttributedString *)createTitle:(NSString *)title; //abstract
+
 
 @end

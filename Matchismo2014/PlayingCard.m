@@ -41,7 +41,6 @@
                    [self.suit isEqualToString:otherCard2.suit] ||
                    [otherCard1.suit isEqualToString:otherCard2.suit]) {
             score += 2;
-            NSLog(@"matched 2 suits");
         }
     }
     

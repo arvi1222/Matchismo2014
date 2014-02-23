@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *matchModeSegmentControl;
-@property (strong, nonatomic) NSMutableArray *resultHistory;
 
 @end
 
