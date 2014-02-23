@@ -122,7 +122,6 @@
                 } else self.matchedCards = @[card];
                 self.score -= FLIP_PENALTY;
                 card.chosen = YES;
-                NSLog(@"Mode is 3");
             }
         }
     }

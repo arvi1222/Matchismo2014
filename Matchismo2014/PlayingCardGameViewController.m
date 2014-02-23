@@ -8,6 +8,7 @@
 
 #import "PlayingCardGameViewController.h"
 #import "PlayingCardDeck.h"
+#import "HistoryViewController.h"
 
 @interface PlayingCardGameViewController ()
 
@@ -18,6 +19,16 @@
 - (Deck *)createDeck
 {
     return [[PlayingCardDeck alloc] init];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Show History"]) {
+        if ([segue.destinationViewController isKindOfClass:[HistoryViewController class]]) {
+            //Put history info here
+            //HistoryViewController *hvc = (HistoryViewController *)segue.destinationViewController;
+        }
+    }
 }
 
 - (NSMutableAttributedString *)cardAttributedContents:(Card *)card

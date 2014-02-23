@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *matchModeSegmentControl;
+@property (strong, nonatomic) NSMutableArray *resultHistory;
 
 @end
 
@@ -33,6 +34,12 @@
     if (!_game) _game = [[CardMatchingGame alloc]initWithCardCount:[self.cardButtons count]
                                                          usingDeck:[self createDeck]];
     return _game;
+}
+
+- (NSMutableArray *)resultHistory
+{
+    if (!_resultHistory) _resultHistory = [[NSMutableArray alloc]init];
+    return _resultHistory;
 }
 
 - (Deck *)createDeck //abstract
@@ -67,7 +74,6 @@
 
 - (IBAction)touchMatchModeControl:(UISegmentedControl *)sender {
     self.game.cardsToMatch = sender.selectedSegmentIndex + SEGMENT_INDEX_ADJUSTER;
-    NSLog(@"Cards to Match is %d", self.game.cardsToMatch);
 }
 
 - (void)updateUI
@@ -89,6 +95,7 @@
     if ([self.game.matchedCards count] == 1) {
         NSMutableAttributedString *resultMessage = [[NSMutableAttributedString alloc] initWithString:@"You flipped the "];
         [resultMessage appendAttributedString: [self cardAttributedContents:((Card *)self.game.matchedCards[0])]];
+        [self.resultHistory addObject:resultMessage];
         self.resultLabel.attributedText = resultMessage;
     } else {
         NSMutableAttributedString *result = [[NSMutableAttributedString alloc] init];
@@ -97,6 +104,7 @@
         }
         NSMutableAttributedString *resultMessage = [[NSMutableAttributedString alloc] initWithString:@"You matched: "];
         [resultMessage appendAttributedString:result];
+        [self.resultHistory addObject:resultMessage];
         self.resultLabel.attributedText = resultMessage;
     }
 }
