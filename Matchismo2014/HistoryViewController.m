@@ -11,30 +11,32 @@
 @interface HistoryViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextView *historyTextView;
-@property (nonatomic, strong) NSMutableAttributedString *tempHistory;
+@property (nonatomic, strong) NSMutableAttributedString *history;
 
 @end
 
 @implementation HistoryViewController
 
-- (void)setHistory:(NSMutableAttributedString *)history
-{
-    _history = history;
-    if (self.view.window) [self updateUI]; //check to see if on screen to updateUI, ow viewWillAppear will updateUI
-}
+@synthesize historyArray = _historyArray;
 
-- (NSMutableAttributedString *)tempHistory
+- (NSMutableAttributedString *)history
 {
-    if (!_tempHistory) {
-        _tempHistory = [[NSMutableAttributedString alloc] init];
+    if (!_history) {
+        _history = [[NSMutableAttributedString alloc] init];
     }
-    return _tempHistory;
+    return _history;
 }
 
 - (NSMutableArray *)historyArray
 {
     if (!_historyArray) _historyArray = [[NSMutableArray alloc] init];
     return _historyArray;
+}
+
+- (void)setHistoryArray:(NSMutableArray *)historyArray
+{
+    _historyArray = historyArray;
+    if (self.view.window) [self updateUI];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -46,10 +48,11 @@
 - (void)updateUI
 {
     for (NSAttributedString *result in self.historyArray) {
-        [self.tempHistory appendAttributedString:result];
+        [self.history appendAttributedString:result];
+        [self.history appendAttributedString:[[NSAttributedString alloc]initWithString:@"\r"]];
     }
-    self.historyTextView.attributedText = self.tempHistory;
-    NSLog(@"tempHistory has %d", [self.tempHistory length]);
+    self.historyTextView.attributedText = self.history;
+    NSLog(@"history has %d", [self.history length]);
     NSLog(@"historyArray has %d", [self.historyArray count]);
 }
 
