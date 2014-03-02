@@ -21,17 +21,10 @@
 
 @implementation CardGameViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self updateUI];
-    self.resultLabel.adjustsFontSizeToFitWidth = YES;
-}
-
 - (CardMatchingGame *)game
 {
     if (!_game) _game = [[CardMatchingGame alloc]initWithCardCount:[self.cardButtons count]
-                                                         usingDeck:[self createDeck]];
+                                                 usingDeck:[self createDeck]];
     return _game;
 }
 
@@ -104,13 +97,21 @@
         NSMutableAttributedString *resultMessage = [[NSMutableAttributedString alloc] init];
         if (self.game.wasMatch) {
             [resultMessage appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"You matched: "]];
-        } else {
+        } else if ([self.game.matchedCards count] > 1){
             [resultMessage appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"You mismatched: "]];
         }
         [resultMessage appendAttributedString:result];
         [self.resultHistory addObject:resultMessage];
         self.resultLabel.attributedText = resultMessage;
     }
+}
+
+- (void)initializeGameOptions:(NSInteger)cardsToMatch
+{
+    [super viewDidLoad];
+    [self updateUI];
+    self.resultLabel.adjustsFontSizeToFitWidth = YES;
+    self.game.cardsToMatch = cardsToMatch;
 }
 
 - (NSAttributedString *)cardAttributedContents:(Card *)card //abstract

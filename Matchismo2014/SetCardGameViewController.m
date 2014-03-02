@@ -20,6 +20,11 @@
 
 @implementation SetCardGameViewController
 
+- (void)viewDidLoad
+{
+    [self initializeGameOptions:3];
+}
+
 - (NSDictionary *)shapes
 {
     if (!_shapes) {
@@ -59,7 +64,6 @@
         if ([segue.destinationViewController isKindOfClass:[HistoryViewController class]]) {
             HistoryViewController *hvc = (HistoryViewController *)segue.destinationViewController;
             hvc.historyArray = self.resultHistory;
-            NSLog(@"Set prepare for segue happened");
         }
     }
 }
@@ -99,7 +103,7 @@
 
 - (UIImage *)backgroundImageForCard:(Card *)card
 {
-    UIImage *chosenImage = [self imageByApplyingAlpha:0.5 forImage:[UIImage imageNamed:@"cardfront"]];
+    UIImage *chosenImage = [self imageByApplyingAlpha:0.6 forImage:[UIImage imageNamed:@"cardfront"]];
     return card.isChosen ? chosenImage : [UIImage imageNamed:@"cardfront"];
 }
 

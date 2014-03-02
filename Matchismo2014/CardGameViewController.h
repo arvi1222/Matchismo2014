@@ -18,6 +18,7 @@
 //for subclasses
 - (Deck *)createDeck; //abstract
 - (NSAttributedString *)createTitle:(NSString *)title; //abstract
+- (void)initializeGameOptions:(NSInteger)cardsToMatch; //viewDidLoad overrider to set cardsToMatch for each game
 
 
 @end

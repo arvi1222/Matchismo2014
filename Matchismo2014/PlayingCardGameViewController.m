@@ -16,6 +16,11 @@
 
 @implementation PlayingCardGameViewController
 
+- (void)viewDidLoad
+{
+    [self initializeGameOptions:2];
+}
+
 - (Deck *)createDeck
 {
     return [[PlayingCardDeck alloc] init];
