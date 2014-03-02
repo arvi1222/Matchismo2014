@@ -9,6 +9,7 @@
 #import "SetCardGameViewController.h"
 #import "SetCardDeck.h"
 #import "SetCard.h"
+#import "HistoryViewController.h"
 
 @interface SetCardGameViewController ()
 @property (strong, nonatomic) NSDictionary *shapes;
@@ -52,6 +53,16 @@
     return [[SetCardDeck alloc] init];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Show Set History"]) {
+        if ([segue.destinationViewController isKindOfClass:[HistoryViewController class]]) {
+            HistoryViewController *hvc = (HistoryViewController *)segue.destinationViewController;
+            hvc.historyArray = self.resultHistory;
+        }
+    }
+}
+
 - (NSAttributedString *)cardAttributedContents:(Card *)card
 {
     return [self titleForCard:card];
@@ -70,9 +81,6 @@
     }
     NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString: shapes];
 
-    //NSMutableAttributedString *title = [self cardAttributedContents:card];
-    
-    //add some attributes bitch
     [title addAttributes:@{NSStrokeWidthAttributeName:@-5, NSStrokeColorAttributeName:self.colors[theCard.color]}
                    range:NSMakeRange(0, [title length])];
     if ([theCard.shading isEqualToString:@"solid"]) {
