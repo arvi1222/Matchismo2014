@@ -16,11 +16,6 @@
 
 @implementation PlayingCardGameViewController
 
-- (void)viewDidLoad
-{
-    [self initializeGameOptions:2];
-}
-
 - (Deck *)createDeck
 {
     return [[PlayingCardDeck alloc] init];
@@ -36,6 +31,11 @@
             NSLog(@"Playing prepare for segue happened");
         }
     }
+}
+
+- (NSInteger)initialCardsToMatch
+{
+    return 2;
 }
 
 - (NSMutableAttributedString *)cardAttributedContents:(Card *)card

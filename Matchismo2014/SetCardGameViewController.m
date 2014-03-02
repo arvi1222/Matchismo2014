@@ -12,6 +12,7 @@
 #import "HistoryViewController.h"
 
 @interface SetCardGameViewController ()
+
 @property (strong, nonatomic) NSDictionary *shapes;
 @property (strong, nonatomic) NSDictionary *colors;
 @property (strong, nonatomic) NSDictionary *shadedColors;
@@ -19,11 +20,6 @@
 @end
 
 @implementation SetCardGameViewController
-
-- (void)viewDidLoad
-{
-    [self initializeGameOptions:3];
-}
 
 - (NSDictionary *)shapes
 {
@@ -66,6 +62,11 @@
             hvc.historyArray = self.resultHistory;
         }
     }
+}
+
+- (NSInteger)initialCardsToMatch
+{
+    return 3;
 }
 
 - (NSAttributedString *)cardAttributedContents:(Card *)card

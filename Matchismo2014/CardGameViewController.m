@@ -21,6 +21,14 @@
 
 @implementation CardGameViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self updateUI];
+    self.resultLabel.adjustsFontSizeToFitWidth = YES;
+    self.game.cardsToMatch = [self initialCardsToMatch];
+}
+
 - (CardMatchingGame *)game
 {
     if (!_game) _game = [[CardMatchingGame alloc]initWithCardCount:[self.cardButtons count]
@@ -106,12 +114,9 @@
     }
 }
 
-- (void)initializeGameOptions:(NSInteger)cardsToMatch
+- (NSInteger)initialCardsToMatch //abstract
 {
-    [super viewDidLoad];
-    [self updateUI];
-    self.resultLabel.adjustsFontSizeToFitWidth = YES;
-    self.game.cardsToMatch = cardsToMatch;
+    return 0;
 }
 
 - (NSAttributedString *)cardAttributedContents:(Card *)card //abstract
