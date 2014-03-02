@@ -281,7 +281,7 @@
                     <navigationItem key="navigationItem" title="Set Card Game" id="5bt-8r-r6x">
                         <barButtonItem key="rightBarButtonItem" title="History" id="Jwy-1a-AXu">
                             <connections>
-                                <segue destination="7Aa-LA-fqf" kind="push" identifier="Show History" id="kr5-kX-ieh"/>
+                                <segue destination="XMq-8M-y72" kind="push" identifier="Show History" id="TtT-3z-XU5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -722,7 +722,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B8s-DR-y3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="378" y="30"/>
+            <point key="canvasLocation" x="450" y="378"/>
         </scene>
         <!--Navigation Controller - Playing Card Match-->
         <scene sceneID="bRK-1n-SzH">
@@ -762,38 +762,6 @@
             </objects>
             <point key="canvasLocation" x="-643" y="612"/>
         </scene>
-        <!--History View Controller-->
-        <scene sceneID="RQG-0y-uZ6">
-            <objects>
-                <viewController id="7Aa-LA-fqf" customClass="HistoryViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vc8-1o-dRz"/>
-                        <viewControllerLayoutGuide type="bottom" id="eR9-UW-l9d"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="keL-aV-lHH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLM-Ca-CyR">
-                                <rect key="frame" x="20" y="80" width="280" height="336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="5M0-hX-HbT"/>
-                    <connections>
-                        <outlet property="historyTextView" destination="eLM-Ca-CyR" id="4h2-XO-WaJ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ldl-rx-16O" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="378" y="612"/>
-        </scene>
     </scenes>
     <resources>
         <image name="cardback" width="64" height="96"/>
@@ -804,4 +772,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="TtT-3z-XU5"/>
+    </inferredMetricsTieBreakers>
 </document>

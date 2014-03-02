@@ -55,10 +55,11 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"Show Set History"]) {
+    if ([segue.identifier isEqualToString:@"Show History"]) {
         if ([segue.destinationViewController isKindOfClass:[HistoryViewController class]]) {
             HistoryViewController *hvc = (HistoryViewController *)segue.destinationViewController;
             hvc.historyArray = self.resultHistory;
+            NSLog(@"Set prepare for segue happened");
         }
     }
 }
@@ -93,7 +94,6 @@
         [title addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]
                       range:NSMakeRange(0, [title length])];
     }
-    
     return title;
 }
 

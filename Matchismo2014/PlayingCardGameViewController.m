@@ -28,6 +28,7 @@
             //Put history info here
             HistoryViewController *hvc = (HistoryViewController *)segue.destinationViewController;
             hvc.historyArray = self.resultHistory;
+            NSLog(@"Playing prepare for segue happened");
         }
     }
 }
