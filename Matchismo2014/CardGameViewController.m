@@ -78,6 +78,7 @@
 
 - (void)updateUI
 {
+    //update cards
     for (UIButton *cardButton in self.cardButtons) {
         int cardButtonIndex = [self.cardButtons indexOfObject:cardButton];
         Card *card = [self.game cardAtIndex:cardButtonIndex];
@@ -85,13 +86,14 @@
         [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
         cardButton.enabled = !card.isMatched;
     }
+    //update scoreLabel and matchModeSegment
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
 
     if (self.game.gameInProgress) {
         [self.matchModeSegmentControl setEnabled:NO forSegmentAtIndex:0];
         [self.matchModeSegmentControl setEnabled:NO forSegmentAtIndex:1];
     }
-    
+    //update resultLabel
     if ([self.game.matchedCards count] == 1) {
         NSMutableAttributedString *resultMessage = [[NSMutableAttributedString alloc] initWithString:@"You flipped the "];
         [resultMessage appendAttributedString: [self cardAttributedContents:((Card *)self.game.matchedCards[0])]];
@@ -105,7 +107,7 @@
         NSMutableAttributedString *resultMessage = [[NSMutableAttributedString alloc] init];
         if (self.game.wasMatch) {
             [resultMessage appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"You matched: "]];
-        } else if ([self.game.matchedCards count] > 1){
+        } else if ([self.game.matchedCards count] == self.game.cardsToMatch){
             [resultMessage appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"You mismatched: "]];
         }
         [resultMessage appendAttributedString:result];

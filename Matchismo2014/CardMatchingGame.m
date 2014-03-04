@@ -72,7 +72,7 @@
             card.chosen = NO;
         } else {
             //match against other chosen cards
-            if (self.cardsToMatch == 2) {
+            if (self.cardsToMatch == 2 && NO) {
                 for (Card *otherCard in self.cards) {
                     if (otherCard.isChosen && !otherCard.isMatched) {
                         int matchScore = [card match:@[otherCard]];
@@ -80,11 +80,13 @@
                             self.score += matchScore * MATCH_BONUS;
                             otherCard.matched = YES;
                             card.matched = YES;
+                            self.wasMatch = YES;
                             self.matchedCards = @[card, otherCard];
                             self.lastScore = matchScore * MATCH_BONUS;
                         } else {
                             self.score -= MISMATCH_PENALTY;
                             otherCard.chosen = NO;
+                            self.wasMatch = NO;
                             self.matchedCards = @[card];
                         }
                         break; //can only choose 2 cards for now
