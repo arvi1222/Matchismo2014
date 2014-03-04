@@ -72,60 +72,34 @@
             card.chosen = NO;
         } else {
             //match against other chosen cards
-            if (self.cardsToMatch == 2 && NO) {
-                for (Card *otherCard in self.cards) {
-                    if (otherCard.isChosen && !otherCard.isMatched) {
-                        int matchScore = [card match:@[otherCard]];
-                        if (matchScore) {
-                            self.score += matchScore * MATCH_BONUS;
-                            otherCard.matched = YES;
-                            card.matched = YES;
-                            self.wasMatch = YES;
-                            self.matchedCards = @[card, otherCard];
-                            self.lastScore = matchScore * MATCH_BONUS;
-                        } else {
-                            self.score -= MISMATCH_PENALTY;
-                            otherCard.chosen = NO;
-                            self.wasMatch = NO;
-                            self.matchedCards = @[card];
-                        }
-                        break; //can only choose 2 cards for now
-                    } else self.matchedCards = @[card];
+            NSMutableArray *chosenCards = [[NSMutableArray alloc]init];
+            for (Card *otherCard in self.cards) {
+                //make array of chosencards
+                if (otherCard.isChosen && !otherCard.isMatched) {
+                    [chosenCards addObject:otherCard];
                 }
-                self.score -= FLIP_PENALTY;
-                card.chosen = YES;
-                
             }
-            else {
-                //match more than 2 cards
-                NSMutableArray *chosenCards = [[NSMutableArray alloc]init];
-                for (Card *otherCard in self.cards) {
-                    //make array of chosencards
-                    if (otherCard.isChosen && !otherCard.isMatched) {
-                        [chosenCards addObject:otherCard];
-                    }
+            if ([chosenCards count] == self.cardsToMatch-1) {
+                int matchScore = [card match:chosenCards];
+                if (matchScore) {
+                    self.score += matchScore *MATCH_BONUS;
+                    for (Card *matchedCard in chosenCards) matchedCard.matched = YES;
+                    card.matched = YES;
+                    self.lastScore = matchScore * MATCH_BONUS;
+                    self.wasMatch = YES;
+                } else {
+                    self.score -= MISMATCH_PENALTY;
+                    for (Card *matchedCard in chosenCards) matchedCard.chosen = NO;
+                    self.wasMatch = NO;
                 }
-                if ([chosenCards count] == self.cardsToMatch-1) {
-                    int matchScore = [card match:chosenCards];
-                    if (matchScore) {
-                        self.score += matchScore *MATCH_BONUS;
-                        for (Card *matchedCard in chosenCards) matchedCard.matched = YES;
-                        card.matched = YES;
-                        self.lastScore = matchScore * MATCH_BONUS;
-                        self.wasMatch = YES;
-                    } else {
-                        self.score -= MISMATCH_PENALTY;
-                        for (Card *matchedCard in chosenCards) matchedCard.chosen = NO;
-                        self.wasMatch = NO;
-                    }
-                    NSMutableArray *temp = [[NSMutableArray alloc] init];
-                    [temp addObject:card];
-                    for (Card *matchedCard in chosenCards) [temp addObject:matchedCard];
-                    self.matchedCards = [temp copy];
-                } else self.matchedCards = @[card];
-                self.score -= FLIP_PENALTY;
-                card.chosen = YES;
-            }
+                NSMutableArray *temp = [[NSMutableArray alloc] init];
+                [temp addObject:card];
+                for (Card *matchedCard in chosenCards) [temp addObject:matchedCard];
+                self.matchedCards = [temp copy];
+            } else self.matchedCards = @[card];
+            self.score -= FLIP_PENALTY;
+            card.chosen = YES;
+            
         }
     }
 }
